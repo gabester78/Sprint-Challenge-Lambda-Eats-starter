@@ -3,7 +3,7 @@ import * as yup from "yup";
 import axios from "axios";
 
 const formSchema = yup.object().shape({
-  name: yup.string().required("Please enter your name."),
+  name: yup.string().required("Your name is required to place an order."),
   size: yup.string(),
   topping1: yup.string(),
   topping2: yup.string(),
@@ -105,7 +105,7 @@ const Pizza = () => {
         <h3>Create your pizza.</h3>
         <div>
           <label htmlFor="name">
-            Please enter your name:<br></br>
+            Enter your name:<br></br>
             <input
               type="text"
               id="name"
@@ -190,8 +190,9 @@ const Pizza = () => {
           />
         </label>
         <br></br>
-        <pre>{JSON.stringify(post, null, 2)}</pre> {/* displays form data */}
         <button disabled={buttonDisabled}>Place Order</button>
+        <pre className="returnData">{JSON.stringify(post, null, 2)}</pre>{" "}
+        {/* displays form data */}
       </div>
     </form>
   );
